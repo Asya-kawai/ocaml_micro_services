@@ -56,6 +56,7 @@ RUN set -x && \
 
 FROM http-server-base AS web-service
 
+USER root
 COPY . .
 RUN set -x && \
     source ~/.profile && \
