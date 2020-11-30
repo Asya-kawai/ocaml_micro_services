@@ -59,7 +59,6 @@ FROM http-server-base AS web-service
 COPY . .
 RUN set -x && \
     source ~/.profile && \
-    ls -la domain/ && \
     : "Build web service" && \
     dune build main.exe
 
