@@ -3,7 +3,7 @@ steps:
     id: 'Build an image'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/github.com/asya-kawai/ocaml_micro_services:$COMMIT_SHA', '.']
     dir: 'first_arch'
-    timeout: '1800'
+    timeout: 1800s
 
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push to container registry'
