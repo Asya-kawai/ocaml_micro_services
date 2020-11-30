@@ -59,6 +59,10 @@ FROM http-server-base AS web-service
 USER root
 COPY . .
 RUN set -x && \
+    chown -R app:app .
+
+USER app
+RUN set -x && \
     source ~/.profile && \
     : "Build web service" && \
     dune build main.exe
