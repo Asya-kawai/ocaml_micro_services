@@ -1,0 +1,4 @@
+(executable
+ (name find)
+ (libraries yaml yaml.unix)
+)
