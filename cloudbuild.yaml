@@ -12,10 +12,12 @@ steps:
 
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Overwrite manifest to update container image for development'
+    entrypoint: '/bin/sh'
     args:
-      - '/bin/sh'
       - '-c'
-      - sed -i -e 's/__COMMIT_SHA__/${SHORT_SHA}/g' -e 's/__PROJECT_ID__/${PROJECT_ID}/g' manifests/dev.yaml
+      - |
+        set -x && \
+        sed -i -e 's/__COMMIT_SHA__/${SHORT_SHA}/g' -e 's/__PROJECT_ID__/${PROJECT_ID}/g' manifests/dev.yaml
     dir: 'micro-service-arch'
 
   - name: 'gcr.io/cloud-builders/kubectl'
