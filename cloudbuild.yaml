@@ -10,4 +10,20 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/github.com/asya-kawai/ocaml_micro_services:$COMMIT_SHA']
     dir: 'first_arch'
 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Overwrite manifest to update container image for development'
+    args:
+      - '/bin/sh'
+      - '-c'
+      - sed -i -e 's/__COMMIT_SHA__/${SHORT_SHA}/g' -e 's/__PROJECT_ID__/${PROJECT_ID}/g' manifests/dev.yaml
+    dir: 'micro-service-arch'
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: 'Apply manifest for development'
+    args: ['apply', '-f', 'manifests/dev.yaml']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=micro-service-demo'
+    dir: 'micro-service-arch'
+
 timeout: 3600s
