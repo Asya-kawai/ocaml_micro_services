@@ -26,6 +26,5 @@ steps:
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=micro-service-demo'
-    dir: 'micro-service-arch'
 
 timeout: 3600s
