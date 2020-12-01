@@ -1,6 +1,6 @@
 # Note:
 # '__COMMIT_SHA__' and '__PROJECT_ID__' are replaced in CloudBuild step.
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: users-api
