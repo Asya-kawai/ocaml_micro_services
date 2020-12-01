@@ -9,11 +9,6 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: users-api
-      app.kubernetes.io/instance: user-__COMMIT_SHA__
-      app.kubernetes.io/version: __COMMIT_SHA__
-      app.kubernetes.io/component: web
-      app.kubernetes.io/part-of: self
-      app.kubernetes.io/managed-by: manual
   template:
     metadata:
       labels:
