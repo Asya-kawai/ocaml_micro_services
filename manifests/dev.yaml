@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
         - name: ocaml-first-arch
-        - image: gcr.io/__PROJECT_ID__/github.com/asya-kawai/ocaml_micro_services:__COMMIT_SHA__
+          image: gcr.io/__PROJECT_ID__/github.com/asya-kawai/ocaml_micro_services:__COMMIT_SHA__
           ports:
             - containerPort: 8000
