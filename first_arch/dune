@@ -1,4 +1,6 @@
+;; https://discuss.ocaml.org/t/linking-several-so-libraries-produced-by-dune/6133
 (executable
  (name main)
+ (link_flags :standard -linkall)
  (libraries lwt cohttp-lwt-unix yojson domain infrastructure middleware)
 )
