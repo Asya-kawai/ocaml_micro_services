@@ -1,4 +1,5 @@
 FROM ubuntu:xenial AS init-opam
+ENV OPAM_VERSION=2.0.8
 
 # Reference if use alpine.
 #   packages:
@@ -25,8 +26,8 @@ RUN set -x && \
     : "Install git, rsync and pkg-config required by opam" && \
     apt-get install -y git rsync pkg-config && \
     : "Install opam" && \
-    wget https://github.com/ocaml/opam/releases/download/2.0.7/opam-2.0.7-x86_64-linux && \
-    install opam-2.0.7-x86_64-linux /usr/local/bin/opam && \
+    wget https://github.com/ocaml/opam/releases/download/${OPAM_VERSION}/opam-${OPAM_VERSION}-x86_64-linux && \
+    install opam-${OPAM_VERSION}-x86_64-linux /usr/local/bin/opam && \
     chmod +x /usr/local/bin/opam && \
     : "Create a user to execute application" && \
     useradd -u 1001 -G users -s /bin/bash -m app

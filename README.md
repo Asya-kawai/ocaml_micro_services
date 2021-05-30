@@ -1,4 +1,6 @@
-## Create GKE clusters
+## Use GCP
+
+### How to create GKE clusters
 
 Login Google Cloud Platform and open Cloud shell.
 Input the following command in Cloud shell to create GKE clusters.

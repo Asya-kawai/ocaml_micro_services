@@ -1,0 +1,63 @@
+# Note:
+# '__COMMIT_SHA__' and '__PROJECT_ID__' are replaced in CloudBuild step.
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: users-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app/users-api
+      app.kubernetes.io/instance: app/user-__COMMIT_SHA__
+      app.kubernetes.io/version: __COMMIT_SHA__
+      app.kubernetes.io/component: api
+      app.kubernetes.io/part-of: web
+      app.kubernetes.io/managed-by: manual
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app/users-api
+        app.kubernetes.io/instance: app/user-__COMMIT_SHA__
+        app.kubernetes.io/version: __COMMIT_SHA__
+        app.kubernetes.io/component: api
+        app.kubernetes.io/part-of: web
+        app.kubernetes.io/managed-by: manual
+    spec:
+      containers:
+        - name: ocaml-first-arch
+        - image: gcr.io/__PROJECT_ID__/github.com/asya-kawai/ocaml_micro_services:__COMMIT_SHA__
+          ports:
+            - containerPort: 8000
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mails-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app/mails-api
+      app.kubernetes.io/instance: app/mail-__COMMIT_SHA__
+      app.kubernetes.io/version: __COMMIT_SHA__
+      app.kubernetes.io/component: api
+      app.kubernetes.io/part-of: web
+      app.kubernetes.io/managed-by: manual
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app/mails-api
+        app.kubernetes.io/instance: app/user-__COMMIT_SHA__
+        app.kubernetes.io/version: __COMMIT_SHA__
+        app.kubernetes.io/component: api
+        app.kubernetes.io/part-of: web
+        app.kubernetes.io/managed-by: manual
+    spec:
+      containers:
+        - name: ocaml-first-arch
+        - image: gcr.io/__PROJECT_ID__/github.com/asya-kawai/ocaml_micro_services:__COMMIT_SHA__
+          ports:
+            - containerPort: 8000

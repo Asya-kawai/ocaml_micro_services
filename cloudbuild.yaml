@@ -17,7 +17,6 @@ steps:
       - '-c'
       - |
         set -x && \
-        ls -la && \
         sed -i -e 's/__COMMIT_SHA__/${SHORT_SHA}/g' -e 's/__PROJECT_ID__/${PROJECT_ID}/g' manifests/dev.yaml
 
   - name: 'gcr.io/cloud-builders/kubectl'
