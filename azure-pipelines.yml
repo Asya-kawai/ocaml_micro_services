@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'ocamlmicroservices.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/first_arch/Dockerfile'
   tag: '$(Build.BuildId)'
-  opamVersion: 
+  OPAM_VERSION: 2.0.7
 
   # Agent VM image name
   vmImageName: 'ubuntu-18.04'
