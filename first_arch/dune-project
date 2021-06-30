@@ -1,1 +1,19 @@
 (lang dune 2.7)
+(name main)
+(version 1.0.0)
+
+(generate_opam_files true)
+
+(license MIT)
+(authors "Toshiki Kawai")
+(maintainers "Toshiki Kawai")
+
+(package
+  (name main)
+  (synopsis "The First architecture on OCaml")
+  (description "The First architecture style when startup project.") 
+  (depends
+    (dune (> 1.5))
+    (lwt (>= 5.4.0))
+    (cohttp-lwt-unix (>= 4.0.0))
+    (yojson (>= 1.7.0))))

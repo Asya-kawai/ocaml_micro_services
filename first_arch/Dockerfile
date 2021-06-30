@@ -11,7 +11,7 @@ FROM init-opam AS ocaml-app-base
 COPY . .
 RUN set -x && \
     : "Install related pacakges" && \
-    opam install -y dune lwt cohttp-lwt-unix yojson && \
+    opam install . --deps-only --locked && \
     eval $(opam env) && \
     : "Build applications" && \
     dune build main.exe && \
