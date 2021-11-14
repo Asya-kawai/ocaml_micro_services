@@ -1,2 +1,13 @@
-_build
-.merlin
+# opam local switch
+_opam/
+
+# Dune build environment
+_build/
+
+# Git
+.git/
+.gitignore
+
+# Development
+Dockerfile
+docker-compose.yml
